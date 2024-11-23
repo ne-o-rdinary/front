@@ -5,10 +5,6 @@ import { useNavigate } from "react-router-dom";
 const Main = () => {
   const navigate = useNavigate();
 
-  const handleButton = () => {
-    navigate("/option");
-  };
-
   return (
     <Wrapper>
       <div className="text">
@@ -22,7 +18,7 @@ const Main = () => {
       <img src={Sad1} className="sad" alt="sad" />
       <img src={Iconlogo} className="icon" alt="icon" />
 
-      <div className="btn" onClick={() => handleButton()}>
+      <div className="btn" onClick={() => navigate("/option")}>
         시작하기
       </div>
     </Wrapper>
