@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Button from "../common/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
