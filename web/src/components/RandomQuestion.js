@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 import { Clover } from "../assets";
 import Button from "../common/Button";
@@ -39,30 +42,66 @@ const ButtonBox = styled.div`
 `;
 
 const RandomQuestion = () => {
-  const getRandomQuestion = () => {};
-  const handleInput = () => {};
+  const location = useLocation();
+  const [question, setQuestion] = React.useState("");
+
+  React.useEffect(() => {
+    getRandomQuestion();
+  }, []);
+
+  /** 랜덤 질문 조회 API */
+  const getRandomQuestion = () => {
+    axios({
+      method: "GET",
+      url: `https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/questions`,
+      params: {
+        questionCategory:
+          location?.state?.category === "회고" ? "RETROSPECT" : "PLAN",
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM",
+      },
+      withCredentials: true,
+    })
+      .then((response) => {
+        setQuestion(response.data.result.question);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  const navigateToInput = () => {};
 
   return (
-    <Container>
-      <Question>
-        <img src={Clover} alt="clover" width={236} height={224} />
-        <Text>어떤 분야에서 더 많은 성취를 이루고 싶어?</Text>
-      </Question>
+    question && (
+      <Container>
+        <Question>
+          <img src={Clover} alt="clover" width={236} height={224} />
+          <Text>{question}</Text>
+        </Question>
 
-      {/** 버튼 */}
-      <ButtonBox>
-        <Button
-          btncolor={"#8EFFFD"}
-          txtcolor={"#000"}
-          onClick={getRandomQuestion}
-        >
-          랜덤 질문 재추첨하기
-        </Button>
-        <Button btncolor={"#FF6767"} txtcolor={"#fff"} onClick={handleInput}>
-          답변 입력하기
-        </Button>
-      </ButtonBox>
-    </Container>
+        {/** 버튼 */}
+        <ButtonBox>
+          <Button
+            btncolor={"#8EFFFD"}
+            txtcolor={"#000"}
+            onClick={getRandomQuestion}
+          >
+            랜덤 질문 재추첨하기
+          </Button>
+          <Button
+            btncolor={"#FF6767"}
+            txtcolor={"#fff"}
+            onClick={navigateToInput}
+          >
+            답변 입력하기
+          </Button>
+        </ButtonBox>
+      </Container>
+    )
   );
 };
 
