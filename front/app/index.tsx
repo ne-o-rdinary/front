@@ -32,11 +32,12 @@ const App: React.FC = () => {
       {/* <Button title="Send to Web" onPress={sendMessageToWeb} /> */}
       <WebView
         ref={webviewRef}
-        source={{ uri: 'http://10.100.201.135:3000' }}
+        source={{ uri: 'https://front1-git-dev-taekyus-projects.vercel.app/' }}
         onMessage={handleMessage} // 웹에서 보낸 데이터를 수신
         javaScriptEnabled={true}
         domStorageEnabled={true}
         onLoadEnd={() => alert('WebView Loaded')}
+        originWhitelist={['*']}
         onError={e => alert(`WebView Error : ${e.nativeEvent}`)}
       />
     </SafeAreaView>
