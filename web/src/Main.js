@@ -74,14 +74,13 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    font-feature-settings: "ss10" on;
-    /* Body 2 Semibold */
-    font-family: Pretendard;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 22.5px */
     letter-spacing: -0.03px;
+
+    border-radius: 7px;
   }
   .tree {
     position: absolute;
