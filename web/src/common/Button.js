@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Button({ children, btncolor, txtcolor }) {
+export default function Button({ children, btncolor, txtcolor, onClick }) {
   return (
-    <ButtonContainer btncolor={btncolor}>
+    <ButtonContainer btncolor={btncolor} onClick={onClick}>
       <ButtonTxt txtcolor={txtcolor}>{children}</ButtonTxt>
     </ButtonContainer>
   );
