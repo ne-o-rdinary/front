@@ -73,7 +73,9 @@ const RandomQuestion = () => {
       });
   };
 
-  const navigateToInput = () => {};
+  const navigateToInput = () => {
+    window.location.href = "/question-input";
+  };
 
   return (
     question && (
