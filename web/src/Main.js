@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import Button from "./common/Button";
-import Option from "./option";
 
-const Main = () => {
-  return (
-    <div>
-      <h1>Main Page 입니다.</h1>
-      <Link to="/test">Test Page로 이동</Link>
-      <Button color={"#00CD80"}>옵션화면</Button>
-    </div>
-  );
-};
-=======
 import styled from 'styled-components'
 import { Clover, Honor1, Iconlogo, Sad1, Tree1 } from './assets'
 
@@ -29,7 +15,6 @@ const Main = () => {
       <img src={Clover} className='clover' alt='clover' />
       <img src={Sad1} className='sad' alt='sad' />
       <img src={Iconlogo} className='icon' alt='icon' />
->>>>>>> e2e467535ac933d49fae6bb386a639d30a9dd2b0
 
       <div className='btn'>시작하기</div>
     </Wrapper>
