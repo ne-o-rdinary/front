@@ -102,23 +102,29 @@ const QuestionInput = () => {
   const navigate = useNavigate();
 
   const handleInput = async () => {
-    const result = await axios.post(
-      "https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers", // API 엔드포인트
-      {
-        questionId: location.state.questionId,
-        answer: input,
-      }, // Body 데이터
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM",
-        },
-        withCredentials: true,
-      }
-    );
-    console.log(result.data.result.uuid);
-    navigate(`/share/${result.data.result.uuid}`);
+    try {
+      const result = await axios.post(
+        "https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers", // API 엔드포인트
+        {
+          questionId: location.state.questionId,
+          answer: input,
+        }, // Body 데이터
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM",
+          },
+          withCredentials: true,
+        }
+      );
+
+      // 성공적으로 응답을 받은 경우
+      console.log(result.data.result.uuid);
+      navigate(`/share/${result.data.result.uuid}`);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

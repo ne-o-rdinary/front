@@ -23,6 +23,8 @@ const Share = () => {
       console.log(response.data.result);
       const { answer, imageIndex, question } = response.data.result;
       setResult([imageIndex, question, answer]);
+    }).catch((error) => {
+      console.error("Error:", error);
     });
   }, []);
 
