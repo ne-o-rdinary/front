@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "./common/Button";
 import { Clover } from "./assets";
 import { CropHonor } from "./assets";
 import { CropSad } from "./assets";
 import { Tree } from "./assets";
+import { Randombox } from "./assets";
+import { useNavigate } from "react-router-dom";
 
 export default function Option() {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState();
+  const navigate = useNavigate();
 
   const handleCategory = (select) => {
     setCategory(select);
   };
 
+  useEffect(() => {
+    if (category) {
+      navigate("/randombox", {
+        state: {
+          option: category,
+        },
+      });
+    }
+  }, [category, navigate]);
   return (
     <BackGround>
       <HonorImg src={CropHonor} />
@@ -29,7 +41,7 @@ export default function Option() {
             2024년 회고하기
           </Button>
         </ButtonContainer>
-        <ButtonContainer onClick={() => handleCategory("계획")}>
+        <ButtonContainer onClick={() => handleCategory("목표")}>
           <Button btncolor={"#FF6767"} txtcolor={"#ffffff"}>
             2025년 목표세우기
           </Button>

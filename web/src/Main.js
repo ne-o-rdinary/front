@@ -1,40 +1,24 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import Button from "./common/Button";
-import Option from "./option";
-
-const Main = () => {
-  return (
-    <div>
-      <h1>Main Page 입니다.</h1>
-      <Link to="/test">Test Page로 이동</Link>
-      <Button color={"#00CD80"}>옵션화면</Button>
-    </div>
-  );
-};
-=======
-import styled from 'styled-components'
-import { Clover, Honor1, Iconlogo, Sad1, Tree1 } from './assets'
+import styled from "styled-components";
+import { Clover, Honor1, Iconlogo, Sad1, Tree1 } from "./assets";
 
 const Main = () => {
   return (
     <Wrapper>
-      <div className='text'>
+      <div className="text">
         랜덤 질문에 답하며
         <br /> 올해를 회고하고
         <br /> 새해 목표를 세워봐!!
       </div>
-      <img src={Honor1} className='honor' alt='honor' />
-      <img src={Tree1} className='tree' alt='tree' />
-      <img src={Clover} className='clover' alt='clover' />
-      <img src={Sad1} className='sad' alt='sad' />
-      <img src={Iconlogo} className='icon' alt='icon' />
->>>>>>> e2e467535ac933d49fae6bb386a639d30a9dd2b0
+      <img src={Honor1} className="honor" alt="honor" />
+      <img src={Tree1} className="tree" alt="tree" />
+      <img src={Clover} className="clover" alt="clover" />
+      <img src={Sad1} className="sad" alt="sad" />
+      <img src={Iconlogo} className="icon" alt="icon" />
 
-      <div className='btn'>시작하기</div>
+      <div className="btn">시작하기</div>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -60,7 +44,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     color: var(--White, #fff);
     text-align: center;
-    font-feature-settings: 'ss10' on;
+    font-feature-settings: "ss10" on;
     text-overflow: ellipsis;
 
     font-family: Pretendard;
@@ -85,7 +69,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    font-feature-settings: 'ss10' on;
+    font-feature-settings: "ss10" on;
     /* Body 2 Semibold */
     font-family: Pretendard;
     font-size: 15px;
@@ -129,6 +113,6 @@ const Wrapper = styled.div`
     --Sub-gradient,
     linear-gradient(180deg, #feeced 0%, #f2e8ff 100%)
   );
-`
+`;
 
-export default Main
+export default Main;
