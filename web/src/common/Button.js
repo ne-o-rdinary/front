@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Button({ children, color }) {
+export default function Button({ children, btncolor, txtcolor, onClick }) {
   return (
-    <ButtonContainer color={color}>
-      <ButtonTxt>{children}</ButtonTxt>
+    <ButtonContainer btncolor={btncolor} onClick={onClick}>
+      <ButtonTxt txtcolor={txtcolor}>{children}</ButtonTxt>
     </ButtonContainer>
   );
 }
@@ -16,14 +16,14 @@ const ButtonContainer = styled.button`
   max-width: 480px;
   padding: 0px 16px;
   gap: 0px;
-  background-color: ${({ color }) => color};
+  background-color: ${({ btncolor }) => btncolor};
   border-radius: 12px;
   border: none;
   cursor: pointer;
 `;
 const ButtonTxt = styled.div`
   display: flex;
-  color: white;
+  color: ${({ txtcolor }) => txtcolor};
   font-size: 20px;
   line-height: 28px;
   align: center;
