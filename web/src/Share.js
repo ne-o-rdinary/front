@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Honor } from "./assets";
+import { Clover, Sad, Honor } from "./assets";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -7,7 +7,7 @@ import Button from "./common/Button";
 
 const Share = () => {
   const { uuid } = useParams(); // URL에서 동적 파라미터 가져오기
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     axios({
@@ -41,7 +41,13 @@ const Share = () => {
   return (
     <Wrapper>
       <div className="content">
-        <img src={Honor} alt="honor" />
+        {result && result[0] === 1 ? (
+          <img src={Clover} alt="clover" width={236} height={224} />
+        ) : result[0] === 2 ? (
+          <img src={Sad} alt="sad" width={236} height={224} />
+        ) : (
+          <img src={Honor} alt="honor" width={236} height={224} />
+        )}
         <Desc>
           {result && (
             <>
