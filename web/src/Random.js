@@ -54,23 +54,23 @@ const BackGround = styled.div`
 const HonorImg = styled.img`
   position: absolute;
   right: 0;
-  top: 120px;
+  top: 6rem;
 `;
 const CloverImg = styled.img`
   width: 156px;
   height: 148px;
   position: absolute;
   transform: rotate(-14.564deg);
-  top: 60px;
+  top: 4rem;
 `;
 const SadImg = styled.img`
   position: absolute;
   left: 0;
-  top: 150px;
+  top: 9rem;
 `;
 const RandomboxImg = styled.img`
   position: absolute;
-  top: 140px;
+  top: 10rem;
   width: 258.546px;
   height: 355.395px;
   flex-shrink: 0;
@@ -79,5 +79,7 @@ const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
   width: 90%;
-  bottom: 2%;
+  bottom: 1.5rem;
+  flex-direction: column;
+  align-items: center;
 `;

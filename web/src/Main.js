@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { Clover, Honor1, Iconlogo, Sad1, Tree1 } from "./assets";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
+  const navigate = useNavigate();
+
+  const handleButton = () => {
+    navigate("/option");
+  };
+
   return (
     <Wrapper>
       <div className="text">
@@ -15,7 +22,9 @@ const Main = () => {
       <img src={Sad1} className="sad" alt="sad" />
       <img src={Iconlogo} className="icon" alt="icon" />
 
-      <div className="btn">시작하기</div>
+      <div className="btn" onClick={() => handleButton()}>
+        시작하기
+      </div>
     </Wrapper>
   );
 };

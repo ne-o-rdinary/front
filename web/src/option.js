@@ -55,7 +55,7 @@ const BackGround = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: center;
+  justify-content: center;
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -67,28 +67,28 @@ const BackGround = styled.div`
 const HonorImg = styled.img`
   position: absolute;
   right: 0;
-  top: 120px;
+  top: 6rem;
 `;
 const CloverImg = styled.img`
   width: 156px;
   height: 148px;
   position: absolute;
   transform: rotate(-14.564deg);
-  top: 60px;
+  top: 4rem;
 `;
 const SadImg = styled.img`
   position: absolute;
   left: 0;
-  top: 150px;
+  top: 9rem;
 `;
 const TreeImg = styled.img`
   position: absolute;
-  top: 140px;
+  top: 9rem;
 `;
 const TitleContainer = styled.div`
   display: flex;
   position: absolute;
-  bottom: 20%;
+  bottom: 30%;
   flex-direction: column;
   align-items: center;
 `;
@@ -107,7 +107,7 @@ const ButtonArea = styled.div`
   display: flex;
   position: absolute;
   width: 100%;
-  bottom: 2%;
+  bottom: 1.5rem;
   flex-direction: column;
   align-items: center;
 `;
@@ -115,4 +115,6 @@ const ButtonContainer = styled.div`
   display: flex;
   width: 90%;
   margin-top: 18px;
+  flex-direction: column;
+  align-items: center;
 `;
