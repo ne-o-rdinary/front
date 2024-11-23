@@ -83,7 +83,8 @@ const RandomQuestion = () => {
     if (questionId) {
       navigate("/question-input", {
         state: {
-          option: questionId,
+          questionId: questionId,
+          question: question,
         },
       });
     }

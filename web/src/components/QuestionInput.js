@@ -95,10 +95,6 @@ const QuestionInput = () => {
   const location = useLocation();
   const inputRef = useRef();
 
-  useEffect(() => {
-    console.log(location.state.option); // questionId
-  }, []);
-
   const onChange = (e) => {
     setInput(e.target.value);
   };
@@ -109,7 +105,7 @@ const QuestionInput = () => {
     const result = await axios.post(
       "https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers", // API 엔드포인트
       {
-        questionId: location.state.option,
+        questionId: location.state.questionId,
         answer: input,
       }, // Body 데이터
       {
@@ -127,11 +123,7 @@ const QuestionInput = () => {
 
   return (
     <Container>
-      <Text>
-        올해 가장
-        <br /> 자랑스러웠던
-        <br /> 순간은 언제야?
-      </Text>
+      <Text>{location.state.question}</Text>
       <InputContainer>
         <InputWrapper>
           <Input
