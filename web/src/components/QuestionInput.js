@@ -110,8 +110,8 @@ const QuestionInput = () => {
         </InputWrapper>
 
         {input.length > 0 && (
-          <Button color={"#FF6767"} onClick={handleInput}>
-            답변 입력하기
+          <Button btncolor={"#FF6767"} txtcolor={"#fff"} onClick={handleInput}>
+            답변 완료
           </Button>
         )}
       </InputContainer>
