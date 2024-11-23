@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import styled from 'styled-components'
 
 const Main = () => {
   return (
-    <div>
+    <Wrapper>
       <h1>Main Page 입니다.</h1>
-      <Link to="/test">Test Page로 이동</Link>
-    </div>
-  );
-};
+    </Wrapper>
+  )
+}
 
-export default Main;
+const Wrapper = styled.div``
+
+export default Main
