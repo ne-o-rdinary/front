@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { Clover } from "../assets";
+import { Clover, Sad, Honor } from "../assets";
 import Button from "../common/Button";
 
 const Container = styled.div`
@@ -45,6 +45,7 @@ const RandomQuestion = () => {
   const location = useLocation();
   const [question, setQuestion] = React.useState("");
   const [questionId, setQuestionId] = React.useState("");
+  const [imageIndex, setImageIndex] = React.useState(0);
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -70,6 +71,7 @@ const RandomQuestion = () => {
       .then((response) => {
         setQuestionId(response.data.result.questionId);
         setQuestion(response.data.result.question);
+        setImageIndex(response.data.result.imageIndex);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -88,10 +90,18 @@ const RandomQuestion = () => {
   };
 
   return (
-    question && (
+    question &&
+    imageIndex && (
       <Container>
         <Question>
-          <img src={Clover} alt="clover" width={236} height={224} />
+          {imageIndex === 1 ? (
+            <img src={Clover} alt="clover" width={236} height={224} />
+          ) : imageIndex === 2 ? (
+            <img src={Sad} alt="sad" width={236} height={224} />
+          ) : (
+            <img src={Honor} alt="honor" width={236} height={224} />
+          )}
+
           <Text>{question}</Text>
         </Question>
 
