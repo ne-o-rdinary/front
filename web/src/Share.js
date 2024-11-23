@@ -1,20 +1,59 @@
 import styled from 'styled-components'
 import { Honor } from './assets'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Button from './common/Button'
 
 const Share = () => {
+  const { uuid } = useParams() // URL에서 동적 파라미터 가져오기
+  const [result, setResult] = useState()
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers/${uuid}`,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM',
+      },
+      withCredentials: true,
+    }).then((response) => {
+      console.log(response.data.result)
+      const { answer, imageIndex, question } = response.data.result
+      setResult([imageIndex, question, answer])
+    })
+  }, [])
+
+  const copyToClipboard = () => {
+    const currentUrl = window.location.href // 현재 주소 가져오기
+    navigator.clipboard
+      .writeText(currentUrl) // 클립보드에 복사
+      .then(() => {
+        alert('URL이 복사되었습니다!')
+      })
+      .catch((err) => {
+        console.error('Failed to copy: ', err)
+      })
+  }
+
   return (
     <Wrapper>
       <div className='content'>
         <img src={Honor} alt='honor' />
         <Desc>
-          <div className='title'>올해 가장 자랑스러웠던 순간은 언제야?</div>
-          <div>
-            내가 너디너리 해커톤에서 멋진 팀원들과 함께 1등을 해서 너무 기뻤을
-            때야. 장소는 선정릉 근처 디캠프에서 열렸지. 내가 너디너리 해커톤에서
-            멋진 팀원들과 함께 1등을 해서 너무기
-          </div>
+          {result && (
+            <>
+              <div className='title'>{result[1]}</div>
+              <div>{result[2]}</div>
+            </>
+          )}
         </Desc>
       </div>
+      <Button btncolor={'#FF6767'} txtcolor={'#fff'} onClick={copyToClipboard}>
+        공유하기
+      </Button>
     </Wrapper>
   )
 }
@@ -22,10 +61,10 @@ const Share = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 50px;
-  height: 100%;
+
+  height: 100vh;
   width: 100%;
 
   .content {
