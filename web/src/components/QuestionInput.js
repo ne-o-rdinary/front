@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../common/Button";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -88,6 +89,11 @@ const Count = styled.div`
 
 const QuestionInput = () => {
   const [input, setInput] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.state.option); // questionId
+  }, []);
 
   const onChange = (e) => {
     setInput(e.target.value);

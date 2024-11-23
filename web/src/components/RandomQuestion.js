@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { Clover } from "../assets";
@@ -44,6 +44,8 @@ const ButtonBox = styled.div`
 const RandomQuestion = () => {
   const location = useLocation();
   const [question, setQuestion] = React.useState("");
+  const [questionId, setQuestionId] = React.useState("");
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     getRandomQuestion();
@@ -66,6 +68,7 @@ const RandomQuestion = () => {
       withCredentials: true,
     })
       .then((response) => {
+        setQuestionId(response.data.result.questionId);
         setQuestion(response.data.result.question);
       })
       .catch((error) => {
@@ -73,8 +76,15 @@ const RandomQuestion = () => {
       });
   };
 
+  // questionId 함께 전달
   const navigateToInput = () => {
-    window.location.href = "/question-input";
+    if (questionId) {
+      navigate("/question-input", {
+        state: {
+          option: questionId,
+        },
+      });
+    }
   };
 
   return (
