@@ -51,10 +51,14 @@ const RandomQuestion = () => {
 
       {/** 버튼 */}
       <ButtonBox>
-        <Button color={"#8EFFFD"} onClick={getRandomQuestion}>
+        <Button
+          btncolor={"#8EFFFD"}
+          txtcolor={"#000"}
+          onClick={getRandomQuestion}
+        >
           랜덤 질문 재추첨하기
         </Button>
-        <Button color={"#FF6767"} onClick={handleInput}>
+        <Button btncolor={"#FF6767"} txtcolor={"#fff"} onClick={handleInput}>
           답변 입력하기
         </Button>
       </ButtonBox>
