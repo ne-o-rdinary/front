@@ -1,29 +1,29 @@
-import styled from "styled-components";
-import { Clover, Honor1, Iconlogo, Sad1, Tree1 } from "./assets";
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components'
+import { Clover, Honor1, Iconlogo, Sad1, Tree1 } from './assets'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <Wrapper>
-      <div className="text">
+      <div className='text'>
         랜덤 질문에 답하며
         <br /> 올해를 회고하고
         <br /> 새해 목표를 세워봐!!
       </div>
-      <img src={Honor1} className="honor" alt="honor" />
-      <img src={Tree1} className="tree" alt="tree" />
-      <img src={Clover} className="clover" alt="clover" />
-      <img src={Sad1} className="sad" alt="sad" />
-      <img src={Iconlogo} className="icon" alt="icon" />
+      <img src={Honor1} className='honor' alt='honor' />
+      <img src={Tree1} className='tree' alt='tree' />
+      <img src={Clover} className='clover' alt='clover' />
+      <img src={Sad1} className='sad' alt='sad' />
+      <img src={Iconlogo} className='icon' alt='icon' />
 
-      <div className="btn" onClick={() => navigate("/option")}>
+      <div className='btn' onClick={() => navigate('/option')}>
         시작하기
       </div>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     color: var(--White, #fff);
     text-align: center;
-    font-feature-settings: "ss10" on;
+    font-feature-settings: 'ss10' on;
     text-overflow: ellipsis;
 
     font-family: Pretendard;
@@ -74,14 +74,13 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    font-feature-settings: "ss10" on;
-    /* Body 2 Semibold */
-    font-family: Pretendard;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 22.5px */
     letter-spacing: -0.03px;
+
+    border-radius: 7px;
   }
   .tree {
     position: absolute;
@@ -118,6 +117,6 @@ const Wrapper = styled.div`
     --Sub-gradient,
     linear-gradient(180deg, #feeced 0%, #f2e8ff 100%)
   );
-`;
+`
 
-export default Main;
+export default Main

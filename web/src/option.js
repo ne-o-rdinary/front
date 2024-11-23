@@ -95,8 +95,6 @@ const TitleContainer = styled.div`
 const TitleTxt = styled.div`
   color: #191929;
   text-align: center;
-  font-feature-settings: "ss10" on;
-  font-family: Pretendard;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;

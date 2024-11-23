@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { useEffect, useRef, useState } from "react";
-import Button from "../common/Button";
-import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import styled from 'styled-components'
+import { useRef, useState } from 'react'
+import Button from '../common/Button'
+import { useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Container = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: center;
 
   height: 100vh;
-`;
+`
 
 const Text = styled.h1`
   margin: 0;
@@ -22,7 +22,7 @@ const Text = styled.h1`
   font-family: Pretendard;
 
   margin: 32px 0;
-`;
+`
 
 const InputContainer = styled.div`
   display: flex;
@@ -37,13 +37,13 @@ const InputContainer = styled.div`
 
   background: #fcffe8;
   box-sizing: border-box; /* 패딩 포함 계산 */
-`;
+`
 
 const InputWrapper = styled.div`
   position: relative; /* Count의 기준을 Input으로 설정 */
   width: 100%;
   height: 100%;
-`;
+`
 
 const Input = styled.textarea`
   width: 100%;
@@ -75,7 +75,7 @@ const Input = styled.textarea`
     letter-spacing: 0.091px;
     font-family: Pretendard;
   }
-`;
+`
 
 const Count = styled.div`
   position: absolute;
@@ -88,38 +88,44 @@ const Count = styled.div`
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.14px;
-`;
+`
 
 const QuestionInput = () => {
-  const [input, setInput] = useState("");
-  const location = useLocation();
-  const inputRef = useRef();
+  const [input, setInput] = useState('')
+  const location = useLocation()
+  const inputRef = useRef()
 
   const onChange = (e) => {
-    setInput(e.target.value);
-  };
+    setInput(e.target.value)
+  }
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleInput = async () => {
-    const result = await axios.post(
-      "https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers", // API 엔드포인트
-      {
-        questionId: location.state.questionId,
-        answer: input,
-      }, // Body 데이터
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM",
-        },
-        withCredentials: true,
-      }
-    );
-    console.log(result.data.result.uuid);
-    navigate(`/share/${result.data.result.uuid}`);
-  };
+    try {
+      const result = await axios.post(
+        'https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers', // API 엔드포인트
+        {
+          questionId: location.state.questionId,
+          answer: input,
+        }, // Body 데이터
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization:
+              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM',
+          },
+          withCredentials: true,
+        }
+      )
+
+      // 성공적으로 응답을 받은 경우
+      console.log(result.data.result.uuid)
+      navigate(`/share/${result.data.result.uuid}`)
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
 
   return (
     <Container>
@@ -130,20 +136,20 @@ const QuestionInput = () => {
             ref={inputRef}
             value={input}
             onChange={onChange}
-            placeholder="답변을 입력해주세요"
+            placeholder='답변을 입력해주세요'
             maxLength={100}
           />
           <Count>{input.length}/100</Count>
         </InputWrapper>
 
         {input.length > 0 && (
-          <Button btncolor={"#FF6767"} txtcolor={"#fff"} onClick={handleInput}>
+          <Button btncolor={'#FF6767'} txtcolor={'#fff'} onClick={handleInput}>
             답변 완료
           </Button>
         )}
       </InputContainer>
     </Container>
-  );
-};
+  )
+}
 
-export default QuestionInput;
+export default QuestionInput
