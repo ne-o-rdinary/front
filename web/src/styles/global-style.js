@@ -1,17 +1,28 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  body{
+  * {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  max-width: 430px;
-  min-width: 400px;
+  html, body {
+    height: 100%;  
+    width: 100%;   
+  }
 
-  margin: 0 auto;
+  body {
+    display: flex;            
+    justify-content: center;  
+    align-items: center;      
+    background-color: #fff;
+    overflow-y: hidden;   
+  }
 
-  border: 1px solid red;
-  
+  #root {
+    width: 100%;
+    height: 100%;
   }
 
 
@@ -27,4 +38,4 @@ export const GlobalStyle = createGlobalStyle`
   -moz-user-drag: none;
   -o-user-drag: none;
 }
-`
+`;

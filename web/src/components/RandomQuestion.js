@@ -13,7 +13,6 @@ const Container = styled.div`
   align-items: center;
   gap: 81px;
   padding: 0 62px;
-
   height: 100vh;
 `;
 
@@ -34,11 +33,12 @@ const Text = styled.h1`
 `;
 
 const ButtonBox = styled.div`
-  width: 100%;
-
+  width: calc(85% + 2 * 62px);
   display: flex;
-  flex-direction: column;
   gap: 18px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 -62px;
 `;
 
 const RandomQuestion = () => {

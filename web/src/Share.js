@@ -1,62 +1,62 @@
-import styled from 'styled-components'
-import { Honor } from './assets'
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import Button from './common/Button'
+import styled from "styled-components";
+import { Honor } from "./assets";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Button from "./common/Button";
 
 const Share = () => {
-  const { uuid } = useParams() // URL에서 동적 파라미터 가져오기
-  const [result, setResult] = useState()
+  const { uuid } = useParams(); // URL에서 동적 파라미터 가져오기
+  const [result, setResult] = useState();
 
   useEffect(() => {
     axios({
-      method: 'GET',
+      method: "GET",
       url: `https://yoonsever.xn--h32bi4v.xn--3e0b707e/api/answers/${uuid}`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM',
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MjllYzA4MC1jY2QyLTQ4YTUtYmM3OC02YWYyM2NmMDI3NmEiLCJpYXQiOjE3MzIzNzczNzAsImV4cCI6MTczMjk4MjE3MH0.7pv3033TXttOezcjwKd44d-rPEnB7-gbqkmWMgyzKEM",
       },
       withCredentials: true,
     }).then((response) => {
-      console.log(response.data.result)
-      const { answer, imageIndex, question } = response.data.result
-      setResult([imageIndex, question, answer])
-    })
-  }, [])
+      console.log(response.data.result);
+      const { answer, imageIndex, question } = response.data.result;
+      setResult([imageIndex, question, answer]);
+    });
+  }, []);
 
   const copyToClipboard = () => {
-    const currentUrl = window.location.href // 현재 주소 가져오기
+    const currentUrl = window.location.href; // 현재 주소 가져오기
     navigator.clipboard
       .writeText(currentUrl) // 클립보드에 복사
       .then(() => {
-        alert('URL이 복사되었습니다!')
+        alert("URL이 복사되었습니다!");
       })
       .catch((err) => {
-        console.error('Failed to copy: ', err)
-      })
-  }
+        console.error("Failed to copy: ", err);
+      });
+  };
 
   return (
     <Wrapper>
-      <div className='content'>
-        <img src={Honor} alt='honor' />
+      <div className="content">
+        <img src={Honor} alt="honor" />
         <Desc>
           {result && (
             <>
-              <div className='title'>{result[1]}</div>
+              <div className="title">{result[1]}</div>
               <div>{result[2]}</div>
             </>
           )}
         </Desc>
       </div>
-      <Button btncolor={'#FF6767'} txtcolor={'#fff'} onClick={copyToClipboard}>
+      <Button btncolor={"#FF6767"} txtcolor={"#fff"} onClick={copyToClipboard}>
         공유하기
       </Button>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ const Wrapper = styled.div`
       --Sub-gradient,
       linear-gradient(180deg, #feeced 0%, #f2e8ff 100%)
     );
-    width: 341px;
+    width: 21rem;
     height: 594px;
 
     display: flex;
@@ -89,13 +89,13 @@ const Wrapper = styled.div`
       height: 285.564px;
     }
   }
-`
+`;
 const Desc = styled.div`
   margin: 0 20px;
 
   .title {
     color: var(--Navy, #191929);
-    font-feature-settings: 'ss10' on;
+    font-feature-settings: "ss10" on;
 
     /* Headline150 */
     font-family: Pretendard;
@@ -107,5 +107,5 @@ const Desc = styled.div`
 
     margin-bottom: 20px;
   }
-`
-export default Share
+`;
+export default Share;
