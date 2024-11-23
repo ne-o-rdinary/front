@@ -14,6 +14,8 @@ const Main = () => {
       <img src={Clover} className='clover' alt='clover' />
       <img src={Sad1} className='sad' alt='sad' />
       <img src={Iconlogo} className='icon' alt='icon' />
+
+      <div className='btn'>시작하기</div>
     </Wrapper>
   )
 }
@@ -23,6 +25,35 @@ const Wrapper = styled.div`
   width: 100%;
 
   position: relative;
+
+  display: flex;
+  align-items: end;
+  justify-content: center;
+
+  .btn {
+    width: 341px;
+    height: 58px;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 0px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--Pastel-Red, #ff6767);
+
+    overflow: hidden;
+    color: var(--White, #fff);
+    text-align: center;
+    font-feature-settings: 'ss10' on;
+    text-overflow: ellipsis;
+
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    letter-spacing: -0.24px;
+  }
 
   .text {
     position: absolute;
