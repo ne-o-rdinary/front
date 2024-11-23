@@ -1,7 +1,7 @@
 # 🎄ne-o-rdinary N팀🎄
 > 안녕하세요. ne-o-rdinary 해커톤 N팀입니다.
 
-![ㅇ](https://github.com/user-attachments/assets/1b770362-0361-4272-a7f9-cbff40de6dbc)
+![1](https://github.com/user-attachments/assets/4a836dcf-e098-4263-a973-4f019f4546b0)
 
 ## 👶🏻 팀원 구성
 |<img src="https://avatars.githubusercontent.com/u/64758823?v=4,ptq124,박태규 Park Tae Kyu,https://github.com/ptq124" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/114673063?v=4,marshmallowing,Youjin,https://github.com/marshmallowing" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/81246338?v=4,gkfla668,임하림,https://github.com/gkfla668" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/108733746?v=4,Yoon0221,신지윤 (Yoon),https://github.com/Yoon0221" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/115148838?v=4,hcg0127,,https://github.com/hcg0127" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/154957716?v=4,OZIIJIN,OZIIJIN,https://github.com/OZIIJIN" width="150" height="150"/>
