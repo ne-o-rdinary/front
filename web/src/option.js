@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./common/Button";
 import { Clover } from "./assets";
@@ -7,6 +7,12 @@ import { CropSad } from "./assets";
 import { Tree } from "./assets";
 
 export default function Option() {
+  const [category, setCategory] = useState("");
+
+  const handleCategory = (select) => {
+    setCategory(select);
+  };
+
   return (
     <BackGround>
       <HonorImg src={CropHonor} />
@@ -18,12 +24,12 @@ export default function Option() {
         <TitleTxt>어떤 랜덤 질문에 답하고 싶어?</TitleTxt>
       </TitleContainer>
       <ButtonArea>
-        <ButtonContainer>
+        <ButtonContainer onClick={() => handleCategory("회고")}>
           <Button btncolor={"#00CD80"} txtcolor={"#ffffff"}>
             2024년 회고하기
           </Button>
         </ButtonContainer>
-        <ButtonContainer>
+        <ButtonContainer onClick={() => handleCategory("계획")}>
           <Button btncolor={"#FF6767"} txtcolor={"#ffffff"}>
             2025년 목표세우기
           </Button>
